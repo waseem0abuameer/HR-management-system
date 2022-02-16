@@ -29,17 +29,62 @@
           </nav>
     </header>
 <!--======================================================================================-->
-<main>
+<main id="main">
+  <center>
+  <div class="card" style="width: 100rem;">
+  <form id="dataForm">
+      <legend>Add New Employee </legend>
+      <div class="mb-3">
+        <label  class="form-label" >Full name</label>
+        <input type="text" va id="name"  class="form-control" required >
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">Department </label>
+        <select id="dep" class="form-select">
+          <option>Administration</option>
+          <option>Marketing</option>
+          <option>Development</option>
+          <option>Finance</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">Level</label>
+        <select  id="level" class="form-select">
+          <option>Junior</option>
+          <option>Mid-Senior</option>
+          <option>Senior</option>           
+        </select>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label" >Image url</label>
+        <input type="text" id="img" class="form-control" >
+      </div>
+   
+      <button type="submit" id="addE" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</center>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div id="employeeArea" >
+      
+    </div>
+  </div>
+  
+</div>
 <script src="app.js"></script>
+
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </main>
+
 <!--======================================================================================-->
 <div class="footer-basic">
     <footer>
         <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
     
-        <p class="copyright">waseem abuameer © 2018</p>
+        <p class="copyright">waseem abuameer © 2022</p>
     </footer>
 </div>
 
