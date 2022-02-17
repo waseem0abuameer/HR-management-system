@@ -64,7 +64,7 @@ employee.prototype.render=function(){
     div.appendChild(br);
     
         }
-//=============================================================================
+
 let Dep = new Array ("Administration","Marketing","Development","Finance");
 let Le =new Array("Junior","Mid-Senior","Senior");
 ///============================================================================
@@ -77,16 +77,34 @@ function sa(min ,max){
 /*let TheFirstPar=new employee("1001","WaseemAbaumeer",Dep[0],Le[0],sa(500,1000));
 
 let ThesecendPar=new employee("13355","sdsdsad",Dep[1],Le[2],sa(500,1000));*/
-let ghazi = new employee(1000,"Ghazi Samer", "Administration ", "Senior", sa(1500,2000),"img/Ghazi.jpg");  
-let lana = new employee(1001,"Lana Ali", "Finance ", "Senior",sa(1500,2500), "img/Lana.jpg");    
+let ghazi = new employee(1000,"Ghazi Samer", "Administration", "Senior", sa(1500,2000),"img/Ghazi.jpg");  
+let lana = new employee(1001,"Lana Ali", "Finance", "Senior",sa(1500,2500), "img/Lana.jpg");    
 let tamara = new employee(1003,"Tamara Ayoub", "Marketing", "Senior", sa(1500,2000),"img/Tamara.jpg"); 
 let saif = new employee(1004,"Safi Walid", "Administration", "Mid-Senior",sa(1000,1500), "img/Safi.jpg");  
 let omar = new employee(1005,"Omar Zaid    ", "Development", "Senior", sa(1500,2000),"img/Omar.jpg");  
-let rana = new employee(1006,"Rana Saleh", "Development ", "Junior", sa(500,1000),"img/Rana.jpg"); 
-let hadi = new employee(1007,"Hadi Ahmad", "Finance ", "Mid-Senior",sa(1000,1500), "img/Hadi.jpg");
-//console.log(TheFirstPar);
+let rana = new employee(1006,"Rana Saleh", "Development", "Junior", sa(500,1000),"img/Rana.jpg"); 
+let hadi = new employee(1007,"Hadi Ahmad", "Finance", "Mid-Senior",sa(1000,1500), "img/Hadi.jpg");
+renderall()
 //===========================================================================
+//=============================================================================
+function saveEmployee(){
+    let formatedData=JSON.stringify(allpr);
+    localStorage.setItem("employee",formatedData);
+   // console.log(allpr);
+}
+function getData(){
+let empl= localStorage.getItem("employee");
+let parseempl=JSON.parse(empl);
+allpr=[];
+if(parseempl!=null){
+    for (let i = 0; i < parseempl.length; i++) {
+        new employee(parseempl[i].ID,parseempl[i].FullName,parseempl[i].Department,parseempl[i].Level,parseempl[i].salary,parseempl[i].img); 
+     };
+}
 
+ renderall();
+}
+//=============================================================================
 //===========================================================================
 form.addEventListener("submit",handelSubmit )
 function handelSubmit(event){
@@ -101,9 +119,11 @@ function handelSubmit(event){
     newEm.randID();
     newEm.render();
     renderall();
-    form.reset();
+    saveEmployee();
+
+   // form.reset();
 }
-console.log(allpr);
+//console.log(allpr);
 function renderall(){ 
     employeeArea.innerHTML="";
 for(let i=0;i<allpr.length;i++)
@@ -112,5 +132,13 @@ for(let i=0;i<allpr.length;i++)
     }
 
 }
-console.log(allpr);
+renderall();
 
+getData();
+var _NSCaseId;
+var nsId;
+$("#listOfCases li").click(function(){
+            nsId = $(this).attr('id');
+            localStorage.setItem('_NSCaseId', nsId); 
+            alert(nsId);
+        });
